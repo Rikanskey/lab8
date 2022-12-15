@@ -6,7 +6,7 @@ export default function appSrc(express, CORS, body_parser, puppeteer) {
 })
   .get("/test/", async  (req, res) => {
     const url = req.query.URL
-    const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']})
+    const browser = await puppeteer.launch({executablePath: 'usr/bin/chromium-browser', headless: true, args:['--no-sandbox']})
     const page = await browser.newPage()
     
     await page.goto(url)
